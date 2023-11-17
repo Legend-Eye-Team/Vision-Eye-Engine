@@ -1,3 +1,9 @@
+PUBLISH_MODULE_GRAPHIC = {
+    "Module":"Graphic",
+    "Coder":["QuangDeNhi"],
+    "Target":"Create Graphic Object"
+}
+
 import pygame
 
 TOP_COLLIED = 501
@@ -39,15 +45,15 @@ class Rectangle(Graphic):
         }
         self.setting = self.display.setting
 
-    def SetAttribute(self, name, value):
+    def SetAttribute(self, name:str, value:str):
         self.Attribute[name] = value
         self.UpdateOnce()
 
-    def Transform(self,new_width,new_height):
+    def Transform(self,new_width:int,new_height:int):
         self.width = new_width
         self.height = new_height
 
-    def GetCollied(self,graphic,max_speed):
+    def GetCollied(self,graphic:Graphic,max_speed:int):
         if graphic.canCollied == True:
 
             local_rect = pygame.Rect(self.x,self.y,self.width,self.height)

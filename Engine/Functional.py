@@ -1,3 +1,9 @@
+PRIVATE_MODULE_FUNCTIONAL = {
+    "Module":"Functional",
+    "Coder":["QuangDeNhi"],
+    "Target":"Create short Method for Local"
+}
+
 import threading
 import time
 

@@ -1,3 +1,9 @@
+PUBLISH_MODULE_EVENT = {
+    "Module":"Event",
+    "Coder":["QuangDeNhi"],
+    "Target":"Listen to Event"
+}
+
 import pygame
 
 class Event_Controller:
@@ -26,6 +32,9 @@ class Mouse:
     
     def RightClick(self):
         return self.IsClick[2]
+
+    def GetPosition(self):
+        return self.x,self.y
 
 class Keyboard:
     def __init__(self) -> None:

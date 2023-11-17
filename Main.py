@@ -15,7 +15,9 @@ player = Human.Human(image2)
 floor = Rectangle(display,0,0,0,0)
 floor.SetAttribute("IsFlat",True)
 
-text = Gui.Text(display,"Font.ttf",20,"")
+text = Gui.Text(display,"Font.ttf",20,"",10,10)
+
+button = Gui.Button(display,"Font.ttf",20,"Hello Btn",100,100,130,50)
 
 # def a(a):
     # i = 0

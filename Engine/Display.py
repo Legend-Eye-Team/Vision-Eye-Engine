@@ -1,6 +1,7 @@
-DISPLAY_INFO = {
+PUBLISH_MODULE_DISPLAY = {
     "Module":"Display",
-    "Coder":["QuangDeNhi"]
+    "Coder":["QuangDeNhi"],
+    "Target":"Init and Control Game"
 }
 
 import pygame
@@ -26,7 +27,7 @@ class Display:
         self.setting = Setting.Setting()
 
     
-    def FillDisplay(self,r,g,b):
+    def FillDisplay(self,r:int,g:int,b:int):
         self._.fill((r,g,b))
 
     def Input(self):

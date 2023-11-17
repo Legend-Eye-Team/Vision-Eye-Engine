@@ -1,6 +1,7 @@
 .vscode/
-gui/
+Gui/
 t.py
 test.png
 test2.png
 Font.ttf
+Submit.py

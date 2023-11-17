@@ -33,6 +33,9 @@ class Mouse:
     def RightClick(self):
         return self.IsClick[2]
 
+    def GetPosition(self):
+        return self.x,self.y
+
 class Keyboard:
     def __init__(self) -> None:
         self.key_pressing = []

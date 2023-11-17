@@ -1,3 +1,8 @@
+INFO_MODULE_HUMAN = {
+    "Module":"Human",
+    "Coder":["QuangDeNhi"]
+}
+
 from . import Functional
 from . import Rectangle
 import threading,time
@@ -9,7 +14,7 @@ RIGHT_COLLIED = 504
 NONE_COLLIED = 500
 
 class Human():
-    def __init__(self,Rectangle) -> None:
+    def __init__(self,Rectangle:Rectangle) -> None:
         self.Rectangle = Rectangle
         self.Health = 100
         self.Max_health = 100
@@ -18,9 +23,9 @@ class Human():
         self._CanJump = True
         self._countdownJump = .7
 
-    def MoveTo(self,x,y=None):
-        prev_x = self.Rectangle.x 
-        prev_x += x
+    def MoveTo(self,x:int,y:int=None):
+        will_x = self.Rectangle.x 
+        will_x += x
         if y != None: self.Rectangle.y = y
         
         for graphic in self.Rectangle.display.Graphics:
@@ -30,21 +35,21 @@ class Human():
                 if graphic.Lock == True: return
                 elif graphic.Lock == False:
                     graphic.x += x / 2
-                    prev_x = x / 2
+                    will_x = x / 2
                     return
 
             elif a[0] == RIGHT_COLLIED and x < 0:
                 if graphic.Lock == True: return
                 elif graphic.Lock == False:
                     graphic.x += x / 2
-                    prev_x = x / 2
+                    will_x = x / 2
                     return
 
         
-        self.Rectangle.x = prev_x
+        self.Rectangle.x = will_x
 
 
-    def _Jump(self,f):
+    def _Jump(self,_):
         self._CanJump = False
         self.Rectangle.Lock= True
         for i in  range(0,5):
@@ -58,3 +63,6 @@ class Human():
             f.start()
             def convert(): self._CanJump = True
             Functional.WaitThread(self._countdownJump,convert)
+
+    def TakeHealth(self,damage):
+        self.Health -= damage
