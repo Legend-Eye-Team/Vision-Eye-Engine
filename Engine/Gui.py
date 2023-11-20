@@ -38,16 +38,24 @@ class Button(Text):
         self.width = width
         self.height = height
         self.isPressing = None
+        self.func = None
 
     def Render(self):
         pygame.draw.rect(self.display._,self.color_background,(self.x-self.size/2,self.y-self.size/2,self.width,self.height))
         return super().Render()
 
     def Update(self):
-        self.isPressing = self.IsPressOnce()
+        self.isPressing = self.IsPress()
         return super().Update()
 
-    def IsPressOnce(self):
+    def initFunction(self,func):
+        self.func = func
+
+    def activeFunction(self):
+        if self.func != None:
+            self.func()
+
+    def IsPress(self):
         mouse_data = self.display.EventControl.Mouse
 
         if mouse_data.LeftClick():
@@ -55,9 +63,7 @@ class Button(Text):
             rect = pygame.Rect(self.x,self.y,self.width,self.height)
             if rect.collidepoint(x,y):
                 if self.isPressing == True:
-                    return True
-                print("pressed")
-
+                    self.activeFunction()
                 return True
             return False
         return False

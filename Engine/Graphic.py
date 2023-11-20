@@ -5,6 +5,7 @@ PUBLISH_MODULE_GRAPHIC = {
 }
 
 import pygame
+from . import Human
 
 TOP_COLLIED = 501
 BOTTOM_COLLIED = 502
@@ -24,6 +25,8 @@ class Graphic:
         self.id = CreateID()
         self.x = x
         self.y = y
+        self.width = 0
+        self.height = 0
         self.display = display
         self.display.Graphics.append(self)
 
@@ -70,6 +73,13 @@ class Rectangle(Graphic):
                     return (LEFT_COLLIED, other_rect.right)
             return (NONE_COLLIED,None)
 
+    def isTouched(self,human):
+        local_rect = pygame.Rect(self.x,self.y,self.width,self.height)
+        if local_rect.collidepoint(human.Rectangle.x,human.Rectangle.y) or \
+            local_rect.collidepoint(human.Rectangle.x,human.Rectangle.y+human.Rectangle.height) or \
+            local_rect.collidepoint(human.Rectangle.x+human.Rectangle.width,human.Rectangle.y):
+            return True
+
     def GravityUpdate(self):
         if self.Lock == False:
             self.y += self.setting.gravity
@@ -93,5 +103,3 @@ class Rectangle(Graphic):
     def Render(self):
         local_rect = pygame.Rect(self.x,self.y,self.width,self.height)
         pygame.draw.rect(self.display._,self.color,local_rect)
-    
-    

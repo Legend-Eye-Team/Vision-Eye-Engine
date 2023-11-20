@@ -4,7 +4,7 @@ INFO_MODULE_HUMAN = {
 }
 
 from . import Functional
-from . import Rectangle
+# from . import Rectangle
 import threading,time
 
 TOP_COLLIED = 501
@@ -13,8 +13,8 @@ LEFT_COLLIED = 503
 RIGHT_COLLIED = 504
 NONE_COLLIED = 500
 
-class Human():
-    def __init__(self,Rectangle:Rectangle) -> None:
+class Human:
+    def __init__(self,Rectangle) -> None:
         self.Rectangle = Rectangle
         self.Health = 100
         self.Max_health = 100
