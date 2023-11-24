@@ -23,26 +23,28 @@ class Human:
         self._CanJump = True
         self._countdownJump = .7
 
-    def MoveTo(self,x:int,y:int=None):
+        self.walkSpeed = 2
+
+    def MoveTo(self,dir_=1):
         will_x = self.Rectangle.x 
-        will_x += x
-        if y != None: self.Rectangle.y = y
+        speed = self.walkSpeed * dir_
+        will_x += self.walkSpeed
         
         for graphic in self.Rectangle.display.Graphics:
-            a = self.Rectangle.GetCollied(graphic,abs(x))
+            a = self.Rectangle.GetCollied(graphic,abs(self.walkSpeed))
             if a == None: continue
-            elif a[0] == LEFT_COLLIED and x > 0:
+            elif a[0] == LEFT_COLLIED and self.walkSpeed > 0:
                 if graphic.Lock == True: return
                 elif graphic.Lock == False:
-                    graphic.x += x / 2
-                    will_x = x / 2
+                    graphic.x += self.walkSpeed / 2
+                    will_x = self.walkSpeed / 2
                     return
 
-            elif a[0] == RIGHT_COLLIED and x < 0:
+            elif a[0] == RIGHT_COLLIED and self.walkSpeed < 0:
                 if graphic.Lock == True: return
                 elif graphic.Lock == False:
-                    graphic.x += x / 2
-                    will_x = x / 2
+                    graphic.x += self.walkSpeed / 2
+                    will_x = self.walkSpeed / 2
                     return
 
         

@@ -9,9 +9,9 @@ exited = False
 def BMVer():
     Name = "Build_Output.json"
     data = []
-    for filename in os.listdir(os.getcwd() + "\\src"):
+    for filename in os.listdir(os.getcwd() + "\\src\\Engine"):
         try:
-            with open(os.path.join(os.getcwd()+"\\src", filename), 'r') as f: # open in readonly mode
+            with open(os.path.join(os.getcwd()+"\\src\\Engine", filename), 'r') as f: # open in readonly mode
                 data.append({"Name":filename,"Content":f.read()})
         except:
             continue

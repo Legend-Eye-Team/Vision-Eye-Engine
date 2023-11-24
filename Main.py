@@ -32,9 +32,9 @@ def test():
 
 def b():
     if display.EventControl.Keyboard.IsPress(pygame.K_d):
-        player.MoveTo(2)
+        player.MoveTo(HUMAN_DIRECTION_RIGHT)
     if display.EventControl.Keyboard.IsPress(pygame.K_a):
-        player.MoveTo(-2)
+        player.MoveTo(HUMAN_DIRECTION_LEFT)
     if display.EventControl.Keyboard.IsPress(pygame.K_w):
         player.JumpActive()
 def f_MAIN():

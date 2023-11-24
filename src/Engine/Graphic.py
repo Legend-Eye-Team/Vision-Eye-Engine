@@ -35,6 +35,10 @@ class Graphic:
 
     def Destroy(self):
         self = None
+    
+    def setPoint(self,x,y):
+        self.x = x
+        self.y = y
 
 class Rectangle(Graphic):
     def __init__(self, display, x, y,width,height) -> None:
