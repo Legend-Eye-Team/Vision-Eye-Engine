@@ -69,7 +69,7 @@ def DeveloperMenu():
             # LPVer()
             print("unknown")
         elif option == "3" or option == "OPV":
-            OpenPVer("Src")
+            OpenPVer("Src/Engine")
         elif option == "4":
             AutoBuild()
         elif option == "0" or option == "EXIT":
