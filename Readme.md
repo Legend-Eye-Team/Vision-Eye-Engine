@@ -6,11 +6,11 @@ VisionE init <Name>
 cd <Name>
 python Run.py
 ```
-## Code 
+<!-- ## Code 
 * Press 'Enter' to run on cmd
 ```
 
-```
+``` -->
 
 # Update Log
 ## 0.0.1.3.1
