@@ -47,7 +47,7 @@ block.SetAttribute("IsFlat")
 image = Image.Image(display,x_pos,y_pos,source)
 
 # Change new size
-image.Transform
+image.Transform(100,100)
 ```
 #### Human
 ```
