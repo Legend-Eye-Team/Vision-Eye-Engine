@@ -82,4 +82,4 @@ player.TakeHealth(damage)
 - Engine
     * Method of Human
     * Single Script ( Run When Satisfied Condition, Run On A Thread )
-    * Update_Function Method of Rectangle ( Argv is rectangle, run with 'display.Update()' )
+    * Update_Function Method of Rectangle ( Argv is rectangle, run with 'display.Update()' ) 
