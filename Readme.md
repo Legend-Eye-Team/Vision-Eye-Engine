@@ -73,4 +73,4 @@ id_rect = rect.getId()
 Note: Gui has its own id
 
 # Dev log
-[a relative link](Devlog.md)
+[DEVLOG](Devlog.md)
