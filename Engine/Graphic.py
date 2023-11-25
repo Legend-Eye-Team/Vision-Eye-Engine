@@ -6,19 +6,13 @@ PUBLISH_MODULE_GRAPHIC = {
 
 import pygame
 from . import Human
+from .Functional import CreateID
 
 TOP_COLLIED = 501
 BOTTOM_COLLIED = 502
 LEFT_COLLIED = 503
 RIGHT_COLLIED = 504
 NONE_COLLIED = 500
-
-
-start_id = 0
-def CreateID():
-    global start_id
-    start_id += 1
-    return start_id - 1
 
 class Graphic:
     def __init__(self,display,x,y) -> None:
@@ -39,6 +33,9 @@ class Graphic:
     def setPoint(self,x,y):
         self.x = x
         self.y = y
+    
+    def getId(self):
+        return self.id
 
 class Rectangle(Graphic):
     def __init__(self, display, x, y,width,height) -> None:

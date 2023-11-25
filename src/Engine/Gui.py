@@ -5,9 +5,11 @@ PUBLISH_MODULE_GUI = {
 }
 
 import pygame
+from .Functional import CreateGuiID
 
 class Text:
     def __init__(self,display,font,size,text,x,y) -> None:
+        self.id = CreateGuiID()
         self.font = pygame.font.Font(font,size)
         self.content = text
         self.color_text = (255,255,255)

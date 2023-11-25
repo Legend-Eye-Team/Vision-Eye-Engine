@@ -37,6 +37,7 @@ def b():
         player.MoveTo(HUMAN_DIRECTION_LEFT)
     if display.EventControl.Keyboard.IsPress(pygame.K_w):
         player.JumpActive()
+
 def f_MAIN():
     # thread = threading.Thread(target=a,args=(1,))
     # thread.start()

@@ -65,6 +65,13 @@ player.JumpActive()
 # Take Health
 player.TakeHealth(damage)
 ```
+#### id of Rectangle
+In a rectangle, image they are have a id. And you can get it by
+```
+rect = Rectangle(display,10,10,100,50)
+id_rect = rect.getId()
+```
+Note: Gui has its own id
 
 
 # Update Log
