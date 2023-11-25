@@ -1,5 +1,6 @@
 .vscode/
 VisionHubGui/
+build/
 t.py
 test.png
 test2.png
