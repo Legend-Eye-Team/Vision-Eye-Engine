@@ -1,4 +1,3 @@
-<!-- # Document -->
 # Setup 
 Create A Project
 ```
@@ -72,3 +71,6 @@ rect = Rectangle(display,10,10,100,50)
 id_rect = rect.getId()
 ```
 Note: Gui has its own id
+
+# Dev log
+[a relative link](Devlog.md)
