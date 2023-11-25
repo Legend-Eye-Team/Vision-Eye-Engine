@@ -1,13 +1,13 @@
-# Document
-## Setup 
+<!-- # Document -->
+# Setup 
 Create A Project
 ```
 VisionE init <Name>
 cd <Name>
 python Run.py
 ```
-## Code 
-### Zone
+# Code 
+## Zone
 In 'Main.py', have some zone. There are:
 * Import (Import library and Engine)
 * Initial (Create variable, Block, Gui, ...)
@@ -17,15 +17,15 @@ In 'Main.py', have some zone. There are:
     - 'display.Update' update everything
     - 'Code' this is zone for function, code, ...
     - 'display.Render' render Block, Gui
-### Create a block
+## Create a block
 
-#### Rectangle
-##### Initial
+### Rectangle
+#### Initial
 ```
 name_of_block = Rectangle(display,x_pos,y_pos,width,height)
 ```
 
-##### Method
+#### Method
 ```
 block = Rectangle(display,250,250,100,100)
 
@@ -42,14 +42,14 @@ block.isTouched(player)
 # isFlat: Create flat by block 
 block.SetAttribute("IsFlat")
 ```
-#### Image
+### Image
 ```
 image = Image.Image(display,x_pos,y_pos,source)
 
 # Change new size
 image.Transform(100,100)
 ```
-#### Human
+### Human
 ```
 player = Human.Human(Rectangle | Image)
 
@@ -65,7 +65,7 @@ player.JumpActive()
 # Take Health
 player.TakeHealth(damage)
 ```
-#### id of Rectangle
+### id of Rectangle
 In a rectangle, image they are have a id. And you can get it by
 ```
 rect = Rectangle(display,10,10,100,50)
