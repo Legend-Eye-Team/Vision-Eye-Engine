@@ -9,6 +9,7 @@ def Install():
             os.path.join("C:/LegendEyeGameStudio/VEye-Engine", "Project"),
             os.path.join("C:/LegendEyeGameStudio/VEye-Engine", "Application") ]
     for path in paths:
+        print(path)
         try:
             os.mkdir(path)
         except FileExistsError:
