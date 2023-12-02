@@ -1,3 +1,6 @@
+# Status
+- Can't install now (Error in setup)
+
 # Setup 
 Create A Project
 ```
