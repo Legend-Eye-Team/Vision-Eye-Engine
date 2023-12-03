@@ -85,6 +85,9 @@ text = Gui.Text(display,<Path to font>, <Size> ,<Text>,<x_pos>,<y_pos>)
 # write to code zone
 text.content = <Text>
 ```
+### Button
+I'm lazy =D
+
 
 ## Create a effect
 ### Create
