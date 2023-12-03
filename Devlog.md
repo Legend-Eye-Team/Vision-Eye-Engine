@@ -1,5 +1,8 @@
 # Update Log
-## 0.0.1.3.1: Error
+## 0.0.1.3.8 [ 3 dec 2023 ]
+- Effect [ Testing ]
+- 2 Constance added ( Human )
+## 0.0.1.3.1: Error [ 1 dec 2023 ]
 - Vector
 - add Vision Hub (  cmd  ): init project [ Error ]
 ## 0.0.1.2 to 0.0.1.3

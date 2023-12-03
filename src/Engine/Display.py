@@ -22,6 +22,7 @@ class Display:
         self.Clock = pygame.time.Clock()
 
         self.Graphics = []
+        self.Effects = []
         self.EventControl = Event.Event_Controller()
 
         self.setting = Setting.Setting()
@@ -40,6 +41,8 @@ class Display:
         if self.Enable == False: pygame.quit();return
         for graphic in self.Graphics:
             graphic.Render()
+        for effect in self.Effects:
+            effect.Render()
         pygame.display.update()
 
     def Exit(self):
@@ -49,4 +52,5 @@ class Display:
         self.Clock.tick(self.setting.fps)
         for graphic in self.Graphics:
             graphic.Update()
-        
+        for effect in self.Effects:
+            effect.Update()

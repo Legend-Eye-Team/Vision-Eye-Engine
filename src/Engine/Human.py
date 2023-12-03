@@ -12,6 +12,8 @@ BOTTOM_COLLIED = 502
 LEFT_COLLIED = 503
 RIGHT_COLLIED = 504
 NONE_COLLIED = 500
+IS_LIVE = 510
+IS_DIED = 511
 
 class Human:
     def __init__(self,Rectangle) -> None:

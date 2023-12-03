@@ -13,6 +13,11 @@ def CreateID():
     global start_id
     start_id += 1
     return start_id - 1
+start_id_gui = 0
+def CreateGuiID():
+    global start_id_gui
+    start_id_gui += 1
+    return start_id_gui - 1
 
 def ConvertBoolean(value):
     return not value

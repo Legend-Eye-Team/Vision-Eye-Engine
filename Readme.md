@@ -1,5 +1,6 @@
 # Status
-- Can't install now (Error in setup)
+- [3 dec] Testing for effect 
+- [1 dec] Can't install now (Error in setup)
 
 # Setup 
 Create A Project
@@ -74,6 +75,76 @@ rect = Rectangle(display,10,10,100,50)
 id_rect = rect.getId()
 ```
 Note: Gui has its own id
+
+## Create a gui
+### Text
+```
+# Create text
+text = Gui.Text(display,<Path to font>, <Size> ,<Text>,<x_pos>,<y_pos>)
+# Edit
+# write to code zone
+text.content = <Text>
+```
+
+## Create a effect
+### Create
+```
+effect = Effect.ParticleGroup(display,<x_pos>,<y_pos>)
+```
+### Edit effect
+#### Before create
+```
+def flame():
+    effect.x = 100
+    effect.y = 100
+
+    effect.direction = Vector.Vector2(
+        random.randint(0,20)/10-1, # move right or left
+        -5)                        # for move up
+
+    effect.color = random.choice(('red','orange','yellow'))
+    effect.timeLife_perP = random.randint(10,12)
+effect.updateAtt = flame
+```
+#### For particle ( After create )
+```
+fountain = Effect.ParticleGroup(display,300,300)
+
+def fountainEff(effect):
+    direction =  effect.direction.getVec()
+    effect.x += direction[0]
+    effect.y += direction[1]
+    effect.timeLife -= effect.KillSpeed
+    effect.size = effect.timeLife
+    effect.direction.y += 0.2
+    if effect.y >= 350:
+        effect.timeLife = 0
+fountain.updateParticle = fountainEff
+```
+### Example
+```
+fountain = Effect.ParticleGroup(display,500,300)
+
+def fountainCreate():
+    fountain.direction = Vector.Vector2(
+        random.randint(0,20)/10-1, # move right or left
+        -6)                        # for move up
+
+    fountain.color = random.choice(('blue','cyan'))
+    fountain.timeLife_perP = random.randint(6,10)
+fountain.updateAtt = fountainCreate
+def fountainEff(effect):
+    direction =  effect.direction.getVec()
+    effect.x += direction[0]
+    effect.y += direction[1]
+    effect.timeLife -= effect.KillSpeed
+    effect.size = effect.timeLife
+    effect.direction.y += 0.2
+    if effect.y >= 350:
+        effect.timeLife = 0
+fountain.updateParticle = fountainEff
+```
+
 
 # Link
 * [DEVLOG](Devlog.md)

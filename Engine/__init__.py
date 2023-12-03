@@ -3,6 +3,8 @@ from .Graphic import *
 from . import Image
 from . import Gui
 from . import Human
+from . import Vector
+from . import Effect
 
 def HelloWorld():
     print("""            ---
