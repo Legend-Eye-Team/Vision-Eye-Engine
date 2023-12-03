@@ -86,7 +86,7 @@ text = Gui.Text(display,<Path to font>, <Size> ,<Text>,<x_pos>,<y_pos>)
 text.content = <Text>
 ```
 ### Button
-I'm lazy =D
+I'm lazy 💀
 
 
 ## Create a effect
