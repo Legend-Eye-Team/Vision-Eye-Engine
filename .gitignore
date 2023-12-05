@@ -1,5 +1,8 @@
 .vscode/
 VisionHubGui/
+src/cmd/build/
+src/cmd/output/
+src/cmd/dist/
 build/pre-alpha-(0.0.1.3)/pre-alpha-(0.0.1.3).rar
 test/project/_
 t.py

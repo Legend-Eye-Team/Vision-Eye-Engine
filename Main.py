@@ -65,11 +65,11 @@ import time, threading
 
 display = Display(1000,600,DISPLAY_CAPTION)
 
-image = Image.Image(display,10,500,".\\test2.png")
+image = Image.Image(display,10,500,".\\testAsset\\test2.png")
 image.Transform(100,100)
 image.Lock = True
 
-image2 = Image.Image(display,10,100,".\\test.png")
+image2 = Image.Image(display,10,100,".\\testAsset\\test.png")
 image2.Transform(50,50)
 
 player = Human.Human(image2)
@@ -77,9 +77,9 @@ player = Human.Human(image2)
 floor = Rectangle(display,0,0,0,0)
 floor.SetAttribute("IsFlat",True)
 
-text = Gui.Text(display,"Font.ttf",20,"",10,10)
+text = Gui.Text(display,"testAsset\\Font.ttf",20,"",10,10)
 
-button = Gui.Button(display,"Font.ttf",20,"Hello Btn",100,100,130,50)
+button = Gui.Button(display,"testAsset\\Font.ttf",20,"Hello Btn",100,100,130,50)
 
 # def a(a):
 #     i = 0

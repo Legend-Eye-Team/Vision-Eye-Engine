@@ -1,7 +1,7 @@
 # Status
 - [5 dec] Finish effect 
-- [3 dec] Testing for effect 
-- [1 dec] Can't install now (Error in setup)
+<!-- - [3 dec] Testing for effect 
+- [1 dec] Can't install now (Error in setup) -->
 
 # Setup 
 Create A Project

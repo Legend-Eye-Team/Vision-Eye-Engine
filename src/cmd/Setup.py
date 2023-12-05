@@ -19,8 +19,7 @@ def Install():
     f_.write(build_output)
     shutil.copyfile("VisionE.exe","C:/LegendEyeGameStudio/VEye-Engine/Application/VisionE.exe")
     
-    print("Adding Environment for VisionE...")
-    r = os.system('SETX PATH "C:\LegendEyeGameStudio\VEye-Engine\Application"')
-    input("All process is success!")
+    input("""-------------------------All process is success!-------------------------
+But you need add 'C:\LegendEyeGameStudio\VEye-Engine\Application' to path\n""")
 
 Install()

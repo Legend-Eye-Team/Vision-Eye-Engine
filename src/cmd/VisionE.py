@@ -27,6 +27,11 @@ def create_project():
 
 
 def main():
-    if sys.argv[1] == "init":
-        create_project()
+    try:
+        if sys.argv[1] == "init":
+            create_project()
+        else:
+            print("""Hello we are legend eye team!\nThis is Version: V 0.0.1.4 """)
+    except:
+        print("""Hello we are legend eye team!\nThis is Version: V 0.0.1.4 """)
 main()
