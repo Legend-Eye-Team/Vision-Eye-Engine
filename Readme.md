@@ -1,4 +1,5 @@
 # Status
+- [5 dec] Finish effect 
 - [3 dec] Testing for effect 
 - [1 dec] Can't install now (Error in setup)
 
@@ -10,6 +11,11 @@ cd <Name>
 python Run.py
 ```
 # Code 
+## Example
+[Block](Test/code/Block.py)
+[Effect](Test/code/Effect.py)
+
+
 ## Zone
 In 'Main.py', have some zone. There are:
 * Import (Import library and Engine)
@@ -88,7 +94,6 @@ text.content = <Text>
 ### Button
 I'm lazy 💀
 
-
 ## Create a effect
 ### Create
 ```
@@ -150,4 +155,4 @@ fountain.updateParticle = fountainEff
 
 
 # Link
-* [DEVLOG](Devlog.md)
+[DEVLOG](Devlog.md)
