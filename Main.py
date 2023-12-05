@@ -1,3 +1,4 @@
+## 0.0.1.4
 ## 0.0.1.3.8: Test for effect
 
 from Engine import *
@@ -15,25 +16,34 @@ def flameCreate():
         -3)                        # for move up
 
     flame.color = random.choice(('red','orange','yellow'))
-    flame.timeLife_perP = random.randint(6,10)
+    flame.timeLife_perP = random.randint(4,8)
+def flameEff(effect):
+    direction =  effect.direction.getVec()
+    effect.x += direction[0]
+    effect.y += direction[1]
+    effect.timeLife -= effect.KillSpeed
+    effect.size -= effect.KillSpeed
+    effect.alpha -= 6
+
+flame.updateParticle = flameEff
 flame.updateAtt = flameCreate
 
 fountain = Effect.ParticleGroup(display,300,300)
 
 def fountainCreate():
     fountain.direction = Vector.Vector2(
-        random.randint(0,20)/10-1, # move right or left
-        -6)                        # for move up
+        random.randint(0,20)/10-1,-6)
 
     fountain.color = random.choice(('blue','cyan'))
-    fountain.timeLife_perP = random.randint(6,10)
+    fountain.timeLife_perP = random.randint(3,6)
 fountain.updateAtt = fountainCreate
+
 def fountainEff(effect):
     direction =  effect.direction.getVec()
     effect.x += direction[0]
     effect.y += direction[1]
     effect.timeLife -= effect.KillSpeed
-    effect.size = effect.timeLife
+    effect.size -= effect.KillSpeed
     effect.direction.y += 0.2
     if effect.y >= 350:
         effect.timeLife = 0

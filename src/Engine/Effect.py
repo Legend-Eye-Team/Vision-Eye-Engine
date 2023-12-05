@@ -14,7 +14,7 @@ def MoveParticle(effect):
     effect.x += direction[0]
     effect.y += direction[1]
     effect.timeLife -= effect.KillSpeed
-    effect.size = effect.timeLife
+    effect.size -= effect.KillSpeed
     # Testing ...
     # particle[1][1] +=
 
@@ -29,14 +29,25 @@ class Particle:
         self.KillSpeed = 2 / 60 # 60 is fps
 
         self.move = MoveParticle
-        
+
+        self.alpha = 255
+
+    def MakeSurface(self):
+        radius = self.size * 2
+        surface =  pygame.Surface((radius*2,radius*2)).convert_alpha()
+        pygame.draw.circle(surface,self.color,(radius,radius),radius)
+        surface.set_colorkey((0,0,0))
+        surface.set_alpha(self.alpha)
+        return surface
+
     def Update(self):
         self.move(self)
 
-
     def Draw(self,display):
-        pygame.draw.circle(display._,self.color,(self.x,self.y),self.size)
-        if self.timeLife <= 0:
+        # pygame.draw.circle(display._,self.color,(self.x,self.y),self.size)
+        surf = self.MakeSurface()
+        display._.blit(surf,(self.x,self.y))
+        if self.timeLife <= 0 or self.alpha <= 0:
             return IS_DIED
         return IS_LIVE
 

@@ -118,7 +118,7 @@ def fountainEff(effect):
     effect.x += direction[0]
     effect.y += direction[1]
     effect.timeLife -= effect.KillSpeed
-    effect.size = effect.timeLife
+    effect.size -= effect.KillSpeed
     effect.direction.y += 0.2
     if effect.y >= 350:
         effect.timeLife = 0
@@ -141,7 +141,7 @@ def fountainEff(effect):
     effect.x += direction[0]
     effect.y += direction[1]
     effect.timeLife -= effect.KillSpeed
-    effect.size = effect.timeLife
+    effect.size -= effect.KillSpeed
     effect.direction.y += 0.2
     if effect.y >= 350:
         effect.timeLife = 0

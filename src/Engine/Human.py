@@ -30,23 +30,23 @@ class Human:
     def MoveTo(self,dir_=1):
         will_x = self.Rectangle.x 
         speed = self.walkSpeed * dir_
-        will_x += self.walkSpeed
+        will_x += speed
         
         for graphic in self.Rectangle.display.Graphics:
             a = self.Rectangle.GetCollied(graphic,abs(self.walkSpeed))
             if a == None: continue
-            elif a[0] == LEFT_COLLIED and self.walkSpeed > 0:
+            elif a[0] == LEFT_COLLIED and speed> 0:
                 if graphic.Lock == True: return
                 elif graphic.Lock == False:
-                    graphic.x += self.walkSpeed / 2
-                    will_x = self.walkSpeed / 2
+                    graphic.x += speed
+                    will_x = speed
                     return
 
-            elif a[0] == RIGHT_COLLIED and self.walkSpeed < 0:
+            elif a[0] == RIGHT_COLLIED and speed < 0:
                 if graphic.Lock == True: return
                 elif graphic.Lock == False:
-                    graphic.x += self.walkSpeed / 2
-                    will_x = self.walkSpeed / 2
+                    graphic.x += speed
+                    will_x = speed
                     return
 
         

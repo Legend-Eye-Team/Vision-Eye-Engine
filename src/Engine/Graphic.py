@@ -21,6 +21,7 @@ class Graphic:
         self.y = y
         self.width = 0
         self.height = 0
+        self.alpha = 255
         self.display = display
         self.display.Graphics.append(self)
 
@@ -101,6 +102,15 @@ class Rectangle(Graphic):
             self.y = self.display._.get_height()
             self.Lock = True
 
+    def MakeSurface(self):
+        surface = pygame.Surface((self.width,self.height)).convert_alpha()
+        pygame.draw.rect(surface,self.color,(0,0,self.width,self.height))
+        surface.set_colorkey((0,0,0))
+        surface.set_alpha(self.alpha)
+        return surface
+
     def Render(self):
-        local_rect = pygame.Rect(self.x,self.y,self.width,self.height)
-        pygame.draw.rect(self.display._,self.color,local_rect)
+        # local_rect = pygame.Rect(self.x,self.y,self.width,self.height)
+        # pygame.draw.rect(self.display._,self.color,local_rect)
+        rect = self.MakeSurface()
+        self.display._.blit(rect,(self.x,self.y))
