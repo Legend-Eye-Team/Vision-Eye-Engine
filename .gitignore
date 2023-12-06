@@ -4,6 +4,7 @@ src/cmd/build/
 src/cmd/output/
 src/cmd/dist/
 test/project/_
+testAsset/
 t.py
 test.png
 test2.png
