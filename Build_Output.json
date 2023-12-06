@@ -33,7 +33,7 @@
     },
     {
         "Name": "Math.py",
-        "Content": "import math\nfrom .Graphic import Graphic\n\ndef getDistance(rect1:Graphic, rect2:Graphic):\n    dx = rect2.x+rect2.width /2 - rect1.x\n    dy = rect2.y+rect2.height/2 - rect1.y\n    distance = math.sqrt(dx**2 + dy**2)\n    return distance"
+        "Content": "import math\nfrom .Graphic import Graphic\n\ndef getDistance(graphic1:Graphic,  graphic2:Graphic):\n    dx =  graphic2.x+ graphic2.width /2 - graphic1.x\n    dy =  graphic2.y+ graphic2.height/2 - graphic1.y\n    distance = math.sqrt(dx**2 + dy**2)\n    return distance"
     },
     {
         "Name": "Setting.py",
