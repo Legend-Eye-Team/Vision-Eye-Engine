@@ -1,6 +1,6 @@
 ## 0.0.1.4
 ## 0.0.1.3.8: Test for effect
-
+V0014_CODE = """
 from Engine import *
 import random
 display = Display(1000,600,DISPLAY_CAPTION)
@@ -56,10 +56,10 @@ def f_MAIN():
         # Code
         display.FillDisplay(0,0,23)
         display.Render()
-f_MAIN()
+f_MAIN()"""
 
 ## 0.0.1.3.1
-V00131_CODE = """
+# V00131_CODE = """
 from Engine import *
 import time, threading
 
@@ -68,6 +68,7 @@ display = Display(1000,600,DISPLAY_CAPTION)
 image = Image.Image(display,10,500,".\\testAsset\\test2.png")
 image.Transform(100,100)
 image.Lock = True
+image.canCollied = False
 
 image2 = Image.Image(display,10,100,".\\testAsset\\test.png")
 image2.Transform(50,50)
@@ -113,4 +114,4 @@ def f_MAIN():
         display.FillDisplay(20,20,20)
         display.Render()
 f_MAIN()
-"""
+# """

@@ -5,6 +5,7 @@ from . import Gui
 from . import Human
 from . import Vector
 from . import Effect
+from . import Math
 
 def HelloWorld():
     print("""            ---

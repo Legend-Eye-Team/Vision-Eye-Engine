@@ -1,4 +1,7 @@
 # Update Log
+## 0.0.1.4.1 [ 6 dec 2023 ]
+- Added Math
+    * getDistance
 ## 0.0.1.4 [ 5 dec 2023 ]
 - Added Effect
 - Added alpha for graphic and effect 

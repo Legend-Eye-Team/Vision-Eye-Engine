@@ -1,4 +1,6 @@
 # Status
+[DEVLOG](Devlog.md)
+- [6 dec]  Math
 - [5 dec] Finish effect 
 <!-- - [3 dec] Testing for effect 
 - [1 dec] Can't install now (Error in setup) -->
@@ -152,7 +154,3 @@ def fountainEff(effect):
         effect.timeLife = 0
 fountain.updateParticle = fountainEff
 ```
-
-
-# Link
-[DEVLOG](Devlog.md)

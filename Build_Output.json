@@ -32,6 +32,10 @@
         "Content": "INFO_MODULE_IMAGE = {\n    \"Module\":\"Graphic-Image\",\n    \"Coder\":[\"QuangDeNhi\"]\n}\n\nimport pygame\nfrom . import Rectangle\n\nclass Image(Rectangle):\n    def __init__(self, display, x, y,source) -> None:\n        self.image = pygame.image.load(source).convert()\n        self.width = self.image.get_width()\n        self.height = self.image.get_height()\n        super().__init__(display, x, y,self.width,self.height)\n        self.SetAttribute(\"IsImage\",True)\n\n    def Render(self):\n        self.display._.blit(self.image,(self.x,self.y))\n    \n    def Transform(self,new_width:int,new_height:int):\n        self.image = pygame.transform.scale(self.image,(new_width,new_height))\n        self.UpdateImage()\n    \n    def UpdateImage(self):\n        self.width = self.image.get_width()\n        self.height = self.image.get_height()\n"
     },
     {
+        "Name": "Math.py",
+        "Content": "import math\nfrom .Graphic import Graphic\n\ndef getDistance(rect1:Graphic, rect2:Graphic):\n    dx = rect2.x+rect2.width /2 - rect1.x\n    dy = rect2.y+rect2.height/2 - rect1.y\n    distance = math.sqrt(dx**2 + dy**2)\n    return distance"
+    },
+    {
         "Name": "Setting.py",
         "Content": "PRIVATE_MODULE_SETTING = {\n    \"Module\":\"Setting\",\n    \"Coder\":[\"QuangDeNhi\"],\n    \"Target\":\"Setting for Client\"\n}\n\nclass Setting:\n    def __init__(self) -> None:\n        self.gravity = 3\n        self.fps = 60"
     },
@@ -41,6 +45,6 @@
     },
     {
         "Name": "__init__.py",
-        "Content": "from .Display import *\nfrom .Graphic import *\nfrom . import Image\nfrom . import Gui\nfrom . import Human\nfrom . import Vector\nfrom . import Effect\n\ndef HelloWorld():\n    print(\"\"\"            ---\nThank You For Using Engine\"\"\")\n\nHelloWorld()\n\nDISPLAY_WIDTH = 500\nDISPLAY_HEIGHT = 500\nDISPLAY_CAPTION = \"Engine Vision Eye\"\n\nHUMAN_DIRECTION_LEFT = -1\nHUMAN_DIRECTION_RIGHT = 1"
+        "Content": "from .Display import *\nfrom .Graphic import *\nfrom . import Image\nfrom . import Gui\nfrom . import Human\nfrom . import Vector\nfrom . import Effect\nfrom . import Math\n\ndef HelloWorld():\n    print(\"\"\"            ---\nThank You For Using Engine\"\"\")\n\nHelloWorld()\n\nDISPLAY_WIDTH = 500\nDISPLAY_HEIGHT = 500\nDISPLAY_CAPTION = \"Engine Vision Eye\"\n\nHUMAN_DIRECTION_LEFT = -1\nHUMAN_DIRECTION_RIGHT = 1"
     }
 ]
