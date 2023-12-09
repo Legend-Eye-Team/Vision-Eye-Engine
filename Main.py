@@ -65,16 +65,19 @@ import time, threading
 
 display = Display(1000,600,DISPLAY_CAPTION)
 
-image = Image.Image(display,10,500,".\\testAsset\\test2.png")
+image = Image.Image(display,10,450,".\\testAsset\\test2.png")
 image.Transform(100,100)
 image.Lock = True
 image.canCollied = False
 
-image2 = Image.Image(display,10,100,".\\testAsset\\test.png")
-image2.Transform(50,50)
+# image2 = Image.Image(display,800,600,".\\testAsset\\test.png")
+# image2.Transform(25,25)
 
-player = Human.Human(image2)
+# player = Human.Human(image2)
 
+# rect = image2
+# rect.Lock = True
+hp = 1000
 floor = Rectangle(display,0,0,0,0)
 floor.SetAttribute("IsFlat",True)
 
@@ -82,36 +85,65 @@ text = Gui.Text(display,"testAsset\\Font.ttf",20,"",10,10)
 
 button = Gui.Button(display,"testAsset\\Font.ttf",20,"Hello Btn",100,100,130,50)
 
-# def a(a):
-#     i = 0
-#     while i < 50 and display.Enable:
-#         print(i, end="\r")
-#         image2.MoveTo(5)
-#         time.sleep(0.1)
-#         i += 1
+player = Image.Image(display,100,100,".\\testAsset\\player.png")
+player.Transform(50,50)
+player.Lock = True
+player = Human.Human(player)
 
-def test():
-    player.JumpActive()
+# vector = Math.getDirection(rect,image)
 
-def b():
+def updateBullet(graphic):
+    global hp
+    speed = 8
+    vector = graphic.GetAttribute("Direction")
+    graphic.setPoint(graphic.x + vector.x*speed,graphic.y + vector.y*speed)
+    isTouch = image.isTouched(graphic,)
+    if isTouch == True:
+        hp -= 1
+        print(hp)
+        graphic.Destroy()
+
+
+def a(a):
+    # time.sleep(1)
+    while display.Enable:
+        # new = 
+        pos = player.Rectangle.center
+        new = Image.Image(display,pos[0],pos[1],".\\testAsset\\test.png")
+        new.Transform(25,25)
+        new.Lock = True
+        new.updateFunc = updateBullet
+        posMouse = display.EventControl.Mouse.GetPosition()
+        newVector = Math.getDirection(new,Vector.Vector2(posMouse[0],posMouse[1]))
+        new.SetAttribute("Direction",newVector)
+
+        time.sleep(.1)
+
+def move():
+    speed = 2
     if display.EventControl.Keyboard.IsPress(pygame.K_d):
-        player.MoveTo(HUMAN_DIRECTION_RIGHT)
+        player.Move2D(speed)
     if display.EventControl.Keyboard.IsPress(pygame.K_a):
-        player.MoveTo(HUMAN_DIRECTION_LEFT)
+        player.Move2D(-speed)
     if display.EventControl.Keyboard.IsPress(pygame.K_w):
-        player.JumpActive()
+        player.Move2D(0,-speed)
+    if display.EventControl.Keyboard.IsPress(pygame.K_s):
+        player.Move2D(0,speed)
 
 def f_MAIN():
-    # thread = threading.Thread(target=a,args=(1,))
-    # thread.start()
-    button.initFunction(test)
+    global vector
+    thread = threading.Thread(target=a,args=(1,))
+    thread.start()
+    # a(1)
+    # button.initFunction(test)
     while display.Enable:
         display.Input()
         display.Update()
         # TODO: Code
-        text.content = str(round(display.Clock.get_fps()))
-        b()
         display.FillDisplay(20,20,20)
+        text.content = str(round(display.Clock.get_fps()))
+        move()
+
         display.Render()
 f_MAIN()
 # """

@@ -1,5 +1,6 @@
 # Status
 [DEVLOG](Devlog.md)
+- [9 dec]  Math Direction Testing ( Very Very Bug 💀 )
 - [6 dec]  Math
 - [5 dec] Finish effect 
 <!-- - [3 dec] Testing for effect 

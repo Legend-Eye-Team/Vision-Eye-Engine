@@ -14,6 +14,11 @@ LEFT_COLLIED = 503
 RIGHT_COLLIED = 504
 NONE_COLLIED = 500
 
+SETTING_ARG_GRAPHIC = 101
+
+def NoneFunction(graphic):
+    return
+
 class Graphic:
     def __init__(self,display,x,y) -> None:
         self.id = CreateID()
@@ -21,6 +26,7 @@ class Graphic:
         self.y = y
         self.width = 0
         self.height = 0
+        self.center = (self.x,self.y)
         self.alpha = 255
         self.display = display
         self.display.Graphics.append(self)
@@ -28,8 +34,14 @@ class Graphic:
         self.Lock = False
         self.canCollied = True
 
+        self.updateFunc = NoneFunction
+
     def Destroy(self):
-        self = None
+        try:
+            self.display.Graphics.remove(self)
+        except ValueError:
+            pass
+        #  self = None
     
     def setPoint(self,x,y):
         self.x = x
@@ -37,6 +49,10 @@ class Graphic:
     
     def getId(self):
         return self.id
+
+    def Update(self):
+        self.center = (self.x+self.width/2,self. y+self.height/2)
+        self.updateFunc(self)
 
 class Rectangle(Graphic):
     def __init__(self, display, x, y,width,height) -> None:
@@ -50,9 +66,12 @@ class Rectangle(Graphic):
         }
         self.setting = self.display.setting
 
-    def SetAttribute(self, name:str, value:str):
+    def SetAttribute(self, name:str, value):
         self.Attribute[name] = value
         self.UpdateOnce()
+
+    def GetAttribute(self, name:str):
+        return self.Attribute[name]
 
     def Transform(self,new_width:int,new_height:int):
         self.width = new_width
@@ -76,11 +95,16 @@ class Rectangle(Graphic):
             return (NONE_COLLIED,None)
 
     def isTouched(self,human):
+        rect = human
+        
         local_rect = pygame.Rect(self.x,self.y,self.width,self.height)
-        if local_rect.collidepoint(human.Rectangle.x,human.Rectangle.y) or \
-            local_rect.collidepoint(human.Rectangle.x,human.Rectangle.y+human.Rectangle.height) or \
-            local_rect.collidepoint(human.Rectangle.x+human.Rectangle.width,human.Rectangle.y):
+        # print(local_rect.collidepoint(rect.center))
+        if local_rect.collidepoint(rect.center)              or \
+            local_rect.collidepoint(rect.x,rect.y+rect.height) or \
+            local_rect.collidepoint(rect.x+rect.width,rect.y ):
             return True
+        else:
+            return False
 
     def GravityUpdate(self):
         if self.Lock == False:
@@ -94,6 +118,7 @@ class Rectangle(Graphic):
                 if a == None: continue
                 if a[0] == TOP_COLLIED:
                     self.y = a[1] - self.height
+        return super().Update()
 
     def UpdateOnce(self):
         if self.Attribute["IsFlat"] == True:

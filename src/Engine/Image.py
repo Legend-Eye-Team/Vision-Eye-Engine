@@ -14,8 +14,21 @@ class Image(Rectangle):
         super().__init__(display, x, y,self.width,self.height)
         self.SetAttribute("IsImage",True)
 
+    def MakeSurface(self):
+        surface = pygame.Surface((self.width,self.height)).convert_alpha()
+        # pygame.draw.rect(surface,self.color,(0,0,self.width,self.height))
+        pic = self.image.copy()
+        surface.blit(pic,(0,0))
+        pic = pygame.PixelArray(pic)
+        # self.image = pygame.PixelArray(self.image)
+        surface.set_colorkey((0,0,0))
+        surface.set_alpha(self.alpha)
+        return surface
+
     def Render(self):
-        self.display._.blit(self.image,(self.x,self.y))
+        rect = self.MakeSurface()
+        self.display._.blit(rect,(self.x,self.y))
+        rect = pygame.PixelArray(rect)
     
     def Transform(self,new_width:int,new_height:int):
         self.image = pygame.transform.scale(self.image,(new_width,new_height))

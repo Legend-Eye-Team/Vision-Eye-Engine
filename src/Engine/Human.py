@@ -51,7 +51,37 @@ class Human:
 
         
         self.Rectangle.x = will_x
+    
+    def Move2D(self,dir_x=0,dir_y=0):
+        will_x = self.Rectangle.x 
+        speed = self.walkSpeed * dir_x
+        will_x += speed
 
+        will_y = self.Rectangle.y
+        speed2 = self.walkSpeed * dir_y
+        will_y += speed2
+        
+        for graphic in self.Rectangle.display.Graphics:
+            a = self.Rectangle.GetCollied(graphic,abs(self.walkSpeed))
+            if a == None: continue
+            elif a[0] == LEFT_COLLIED and speed> 0 or \
+                a[0] == RIGHT_COLLIED and speed < 0:
+                if graphic.Lock == True: return
+                elif graphic.Lock == False:
+                    graphic.x += speed
+                    will_x = speed
+                    return
+
+            elif a[0] == TOP_COLLIED and speed < 0 or \
+                a[0] == BOTTOM_COLLIED and speed < 0:
+                if graphic.Lock == True: return
+                elif graphic.Lock == False:
+                    graphic.y += speed
+                    will_y = speed
+                    return
+
+        self.Rectangle.x = will_x
+        self.Rectangle.y = will_y
 
     def _Jump(self,_):
         self._CanJump = False
