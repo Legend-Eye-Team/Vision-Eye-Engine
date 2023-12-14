@@ -21,8 +21,8 @@ class Image(Rectangle):
         surface.blit(pic,(0,0))
         pic = pygame.PixelArray(pic)
         # self.image = pygame.PixelArray(self.image)
-        surface.set_colorkey((0,0,0))
         surface.set_alpha(self.alpha)
+        surface = pygame.transform.rotate(surface,self.angle)
         return surface
 
     def Render(self):

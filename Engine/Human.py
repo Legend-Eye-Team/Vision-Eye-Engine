@@ -4,7 +4,6 @@ INFO_MODULE_HUMAN = {
 }
 
 from . import Functional
-# from . import Rectangle
 import threading,time
 
 TOP_COLLIED = 501
@@ -35,23 +34,17 @@ class Human:
         for graphic in self.Rectangle.display.Graphics:
             a = self.Rectangle.GetCollied(graphic,abs(self.walkSpeed))
             if a == None: continue
-            elif a[0] == LEFT_COLLIED and speed> 0:
+            elif a[0] == LEFT_COLLIED and speed> 0 or \
+                a[0] == RIGHT_COLLIED and speed < 0:
                 if graphic.Lock == True: return
                 elif graphic.Lock == False:
                     graphic.x += speed
                     will_x = speed
                     return
 
-            elif a[0] == RIGHT_COLLIED and speed < 0:
-                if graphic.Lock == True: return
-                elif graphic.Lock == False:
-                    graphic.x += speed
-                    will_x = speed
-                    return
-
-        
         self.Rectangle.x = will_x
-    
+
+
     def Move2D(self,dir_x=0,dir_y=0):
         will_x = self.Rectangle.x 
         speed = self.walkSpeed * dir_x
@@ -87,7 +80,15 @@ class Human:
         self._CanJump = False
         self.Rectangle.Lock= True
         for i in  range(0,5):
+            
             self.Rectangle.y -= self.Jump_power / 5
+            for graphic in self.Rectangle.display.Graphics:
+                a = self.Rectangle.GetCollied(graphic,abs(self.Jump_power/5))
+                if a == None: continue
+                elif a[0] == BOTTOM_COLLIED:
+                    self.Rectangle.y += self.Jump_power / 6
+                    break
+
             time.sleep(.02)
         self.Rectangle.Lock= False
 

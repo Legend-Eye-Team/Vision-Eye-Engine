@@ -1,8 +1,12 @@
+# Introduce
+Hello world. From Legend Eye Game Studio (aka Legend Eye Team). <br>
+Vision Eye Engine is a open source engine. This engine using python and pygame. <br>  
 # Status
 [DEVLOG](Devlog.md)
+- [14 dec] Fixed bug, new version 0.0.2
 - [9 dec]  Math Direction Testing ( Very Very Bug 💀 )
 - [6 dec]  Math
-- [5 dec] Finish effect 
+<!-- - [5 dec] Finish effect  -->
 <!-- - [3 dec] Testing for effect 
 - [1 dec] Can't install now (Error in setup) -->
 

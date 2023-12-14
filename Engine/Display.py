@@ -43,7 +43,7 @@ class Display:
             graphic.Render()
         for effect in self.Effects:
             effect.Render()
-        pygame.display.update()
+        pygame.display.flip()
 
     def Exit(self):
         self.Enable = False

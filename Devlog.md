@@ -1,7 +1,16 @@
 # Update Log
-## 0.0.1.4.1 [ 6 dec 2023 ]
+## 0.0.2 [ 14 dec 2023 ]
+- Graphic
+    * Circle
+    * Polygone
+    * Alpha for graphic
+- Human
+    * Move 2D
+    * Fix: Collied Jump
+## 0.0.1.4.1, 0.0.1.4.2 [ 6 dec 2023 ]
 - Added Math
     * getDistance
+    * getDirection
 ## 0.0.1.4 [ 5 dec 2023 ]
 - Added Effect
 - Added alpha for graphic and effect 

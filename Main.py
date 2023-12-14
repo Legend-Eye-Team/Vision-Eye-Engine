@@ -59,7 +59,53 @@ def f_MAIN():
 f_MAIN()"""
 
 ## 0.0.1.3.1
-# V00131_CODE = """
+# 0.0.1.3.1
+from Engine import *
+
+display = Display(1000,600,DISPLAY_CAPTION)
+
+image = Image.Image(display,10,400,"testAsset\\test2.png")
+image.Transform(100,100)
+image.Lock = True
+# image.angle = 20
+
+
+image2 = Image.Image(display,10,100,"testAsset\\player.png")
+image2.Transform(50,50)
+
+player = Human.Human(image2)
+
+floor = Rectangle(display,0,0,0,0)
+floor.SetAttribute("IsFlat",True)
+
+text = Gui.Text(display,"testAsset\\Font.ttf",20,"",10,10)
+
+block = Circle(display,400,10,20)
+
+testBlock = Polygone(display,100,200)
+testBlock.Lock = True
+
+def b():
+    if display.EventControl.Keyboard.IsPress(pygame.K_d):
+        player.MoveTo(HUMAN_DIRECTION_RIGHT)
+    if display.EventControl.Keyboard.IsPress(pygame.K_a):
+        player.MoveTo(HUMAN_DIRECTION_LEFT)
+    if display.EventControl.Keyboard.IsPress(pygame.K_w):
+        player.JumpActive()
+
+def f_MAIN():
+    while display.Enable:
+        display.Input()
+        display.Update()
+        # Code
+        text.content = str(round(display.Clock.get_fps()))
+        b()
+        display.FillDisplay(50,50,75)
+        display.Render()
+f_MAIN()
+
+## 0.0.1.4.1
+V00142_CODE = """
 from Engine import *
 import time, threading
 
@@ -146,4 +192,4 @@ def f_MAIN():
 
         display.Render()
 f_MAIN()
-# """
+"""
